@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Tailwind v4 CSS-first configuration for Vrindavan Trip brand colors */
+@theme {
+  --color-primaryNavy: #0B3558;
+  --color-darkNavy: #062A46;
+  --color-goldenYellow: #F5C32B;
+  --color-lightGold: #FFF4C7;
+  --color-lightBlue: #EEF7FC;
+  --color-textDark: #18324A;
+  --color-mutedText: #66788A;
+  --color-borderLight: #D9E2EA;
+}
+
+body {
+  color: var(--color-textDark);
+  background: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
