@@ -12,22 +12,20 @@ export default function Hero() {
             next/image automatically optimizes image delivery and helps
             reduce unnecessary image payloads, improving page loading
             performance and Core Web Vitals (LCP). */}
- <Image
+ {/* <Image
   src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1920"
   alt="Prem Mandir in Vrindavan illuminated at sunset"
   fill
   priority
   sizes="100vw"
   className="object-cover object-center"
-/>
+/> */}
         <div className="absolute inset-0 bg-linear-to-r from-darkNavy via-darkNavy/80 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
 
-<div>
-  test
-</div>
+
 
         <div className="max-w-2xl">
           <span className="inline-block text-goldenYellow text-sm font-semibold tracking-wider uppercase mb-3 bg-white/10 px-3 py-1 rounded-full border border-goldenYellow/30">
