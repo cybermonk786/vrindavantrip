@@ -111,7 +111,19 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <p>© {currentYear} {siteConfig.name}. All Rights Reserved. <Link href="https://linkedin.com/in/vivek-dusad" target="_blank" rel="noopener noreferrer" className="hover:text-goldenYellow transition-colors">Made By Vivek Dusad</Link></p>
+          <p>© {currentYear} {siteConfig.name}. All Rights Reserved.</p>
+          <p>
+        Made by&nbsp;&nbsp;&nbsp;
+            <a
+              href="https://linkedin.com/in/vivek-dusad"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Vivek Dusad's LinkedIn profile (opens in a new tab)"
+              className="font-medium text-neutral-200 underline decoration-neutral-600 underline-offset-4 transition-colors hover:text-goldenYellow hover:decoration-goldenYellow"
+            >
+                 Vivek-Dusad(SDE2)
+            </a>
+          </p>
           <div className="flex items-center gap-6">
             <Link href="/terms" className="hover:text-goldenYellow transition-colors">Terms & Conditions</Link>
             <Link href="/privacy" className="hover:text-goldenYellow transition-colors">Privacy Policy</Link>
