@@ -1,9 +1,8 @@
 'use client';
 
-import { use } from 'react';
+import { use, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Clock, MapPin, CheckCircle2 } from 'lucide-react';
 
 const packagesData: Record<string, { 
   title: string; 
@@ -43,6 +42,12 @@ const packagesData: Record<string, {
 
 export default function PackageDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
+
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [travelDate, setTravelDate] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   
   const pkg = packagesData[slug] || {
     title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
@@ -56,6 +61,50 @@ export default function PackageDetailPage({ params }: { params: Promise<{ slug: 
       'All Tolls & Parking',
       'Sightseeing Guidance'
     ]
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setFeedback(null);
+
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          packageTitle: pkg.title,
+          duration: pkg.duration,
+          price: pkg.price,
+          fullName: fullName.trim(),
+          phone,
+          travelDate,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send booking request.');
+      }
+
+      setFeedback({
+        type: 'success',
+        text: 'Booking request submitted successfully! Our team will call you shortly.',
+      });
+      setFullName('');
+      setPhone('');
+      setTravelDate('');
+    } catch (err) {
+      setFeedback({
+        type: 'error',
+        text: err instanceof Error ? err.message : 'Something went wrong. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -135,7 +184,7 @@ export default function PackageDetailPage({ params }: { params: Promise<{ slug: 
                 Book This Package
               </h2>
 
-              <form onSubmit={(e) => { e.preventDefault(); alert('Booking request submitted successfully!'); }} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 
                 <div className="space-y-1.5">
                   <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider">
@@ -146,6 +195,12 @@ export default function PackageDetailPage({ params }: { params: Promise<{ slug: 
                       type="text" 
                       placeholder="Enter name" 
                       required
+                      minLength={4}
+                      maxLength={15}
+                      pattern="[A-Za-z ]{4,15}"
+                      title="Only alphabets are allowed (4 to 15 characters)."
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value.replace(/[^A-Za-z ]/g, ''))}
                       className="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                     />
                   </div>
@@ -156,11 +211,20 @@ export default function PackageDetailPage({ params }: { params: Promise<{ slug: 
                     Phone Number
                   </label>
                   <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-neutral-500 select-none">
+                      +91
+                    </span>
                     <input 
                       type="tel" 
-                      placeholder="+91 98765 43210" 
+                      placeholder="9876543210" 
                       required
-                      className="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      minLength={10}
+                      maxLength={10}
+                      pattern="[6-9][0-9]{9}"
+                      title="Please enter a valid 10-digit mobile number."
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ''))}
+                      className="w-full bg-white border border-neutral-300 rounded-xl pl-12 pr-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
@@ -173,17 +237,35 @@ export default function PackageDetailPage({ params }: { params: Promise<{ slug: 
                     <input 
                       type="date" 
                       required
-                      className="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      min={new Date().toLocaleDateString('en-CA')}
+                      value={travelDate}
+                      onChange={(e) => setTravelDate(e.target.value)}
+                      onKeyDown={(e) => e.preventDefault()}
+                      onClick={(e) => e.currentTarget.showPicker?.()}
+                      className="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-sm text-neutral-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
 
                 <button 
                   type="submit"
-                  className="w-full bg-amber-400 hover:bg-amber-500 active:scale-[0.99] text-neutral-900 font-bold py-3 px-4 rounded-xl shadow-sm transition-all text-sm tracking-wide mt-2"
+                  disabled={isSubmitting}
+                  className="w-full bg-amber-400 hover:bg-amber-500 disabled:opacity-60 active:scale-[0.99] text-neutral-900 font-bold py-3 px-4 rounded-xl shadow-sm transition-all text-sm tracking-wide mt-2 cursor-pointer"
                 >
-                  Confirm Booking Request
+                  {isSubmitting ? 'Sending Request...' : 'Confirm Booking Request'}
                 </button>
+
+                {feedback && (
+                  <div
+                    className={`text-xs rounded-xl px-3.5 py-2.5 font-medium border ${
+                      feedback.type === 'success'
+                        ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                        : 'bg-red-50 text-red-800 border-red-200'
+                    }`}
+                  >
+                    {feedback.text}
+                  </div>
+                )}
 
               </form>
 
