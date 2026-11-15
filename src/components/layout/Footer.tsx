@@ -111,7 +111,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <p>© {currentYear} {siteConfig.name}. All Rights Reserved.</p>
+          <p>© {currentYear} {siteConfig.name}. All Rights Reserved. <Link href="https://linkedin.com/in/vivek-dusad" target="_blank" rel="noopener noreferrer" className="hover:text-goldenYellow transition-colors">Made By Vivek Dusad</Link></p>
           <div className="flex items-center gap-6">
             <Link href="/terms" className="hover:text-goldenYellow transition-colors">Terms & Conditions</Link>
             <Link href="/privacy" className="hover:text-goldenYellow transition-colors">Privacy Policy</Link>
