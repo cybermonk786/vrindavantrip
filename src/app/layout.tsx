@@ -1,4 +1,4 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
+//import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -58,7 +58,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-white text-textDark">
         <Header />
         <main className="grow">{children}</main>
-           <SpeedInsights />
+         
         <Footer />
       </body>
     </html>
