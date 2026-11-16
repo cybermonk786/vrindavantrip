@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   // Search engines use it as the main title in search results.
 title: {
     default: 'Vrindavan Trip | Mathura & Vrindavan Pilgrimage Tour Packages',
-    template: '%s | Vrindavan Trip',
+    template: '%s | Vrindavan Trip Tourism',
   },
   // SEO:
   // The description provides a concise summary of the page for search snippets.
