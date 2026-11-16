@@ -10,8 +10,10 @@ export const metadata: Metadata = {
   // SEO:
   // The title identifies the primary topic of this page.
   // Search engines use it as the main title in search results.
-  title: 'Vrindavan Trip | Mathura, Vrindavan & Gokul Tour Packages',
-  
+title: {
+    default: 'Vrindavan Trip | Mathura & Vrindavan Pilgrimage Tour Packages',
+    template: '%s | Vrindavan Trip',
+  },
   // SEO:
   // The description provides a concise summary of the page for search snippets.
   description: siteConfig.description,
