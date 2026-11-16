@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Vrindavan Trip tourism service",
+  name: "Vrindavan Trip ",
   tagline: "Har Safar bharose par",
   description: "Explore Mathura, Vrindavan, Gokul, Govardhan, Barsana and Nandgaon with comfortable vehicles, experienced drivers and well-planned pilgrimage tour packages.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vrindavantrip.com",
