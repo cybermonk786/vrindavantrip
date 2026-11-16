@@ -1,16 +1,21 @@
-import { MetadataRoute } from 'next';
+// app/robots.ts
+import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site-config';
 
+// Force Next.js to pre-render robots.txt as a static asset at build time
+export const dynamic = 'force-static';
+
 export default function robots(): MetadataRoute.Robots {
-  // SEO:
-  // The robots.ts file instructs search engine crawlers which URLs
-  // they can access. We allow public pages and reference our sitemap.
+  const baseUrl = (siteConfig.url || 'https://www.vrindavantrip.com').replace(/\/+$/, '');
+
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/', '/admin/'],
-    },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
