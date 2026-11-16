@@ -51,14 +51,14 @@ export default function AboutPreview() {
             </div>
 
             <div className="pt-4">
-              <p>All about us 
+              
               <Link
                 href="/about"
                 className="inline-flex items-center gap-2 bg-goldenYellow text-darkNavy px-7 py-3.5 rounded-full font-bold text-base hover:bg-amber-400 transition-all shadow-md"
               >
                 <span>Read More</span>
                 <ArrowRight className="w-5 h-5" />
-              </Link></p>
+              </Link>
             </div>
           </div>
 
