@@ -5,7 +5,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vrindavantrip.com",
   phone: "+916398876018",
   phoneRaw: "+916398876018",
-  email: "vrindavantrip0101@gmail.com",
+  email: "vrindavantrip.info@gmail.com",
   address: "Mathura, Uttar Pradesh, India",
   socials: {
     facebook: "https://facebook.com",
