@@ -1,37 +1,14 @@
 # Dependencies
 /node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
 
-# Next.js build & static export outputs
+# Next.js build output & generated types
 /.next/
 /out/
-/build
-
-# Testing & coverage
-/coverage
-/playwright-report
-/test-results
-
-# Misc & OS files
-.DS_Store
-*.pem
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+next-env.d.ts
 
 # Local environment variables
-.env
 .env*.local
 
-# Platform & TypeScript caches
-.vercel
-*.tsbuildinfo
-next-env.d.ts
+# Optional: AI assistant configs
+AGENTS.md
+CLAUDE.md
