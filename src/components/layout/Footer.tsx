@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Feather, Phone, Mail, MapPin } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '@/lib/site-config';
 
 export default function Footer() {
@@ -14,9 +15,13 @@ export default function Footer() {
           {/* Column 1: Branding */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-goldenYellow border border-goldenYellow/30">
-                <Feather className="w-5 h-5 text-goldenYellow fill-goldenYellow" />
-              </div>
+              <Image
+                src={siteConfig.logo}
+                alt={`${siteConfig.name} logo`}
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full object-cover bg-white"
+              />
               <div>
                 <span className="text-xl font-bold tracking-tight block">
                   {siteConfig.name}

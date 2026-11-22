@@ -7,7 +7,7 @@ export default function OrganizationSchema() {
     "@type": "TravelAgency",
     "name": siteConfig.name,
     "url": siteConfig.url,
-    "logo": `${siteConfig.url}/logo.png`,
+    "logo": `${siteConfig.url}${siteConfig.logo}`,
     "description": siteConfig.description,
     "telephone": siteConfig.phone,
     "email": siteConfig.email,

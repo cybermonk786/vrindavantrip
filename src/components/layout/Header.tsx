@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Phone, Menu, X, Feather } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Menu, X } from 'lucide-react';
 import { siteConfig } from '@/lib/site-config';
 
 export default function Header() {
@@ -14,9 +15,14 @@ export default function Header() {
           
           {/* Logo Area */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-lightBlue flex items-center justify-center text-primaryNavy border border-goldenYellow shadow-sm">
-              <Feather className="w-5 h-5 text-goldenYellow fill-goldenYellow" />
-            </div>
+            <Image
+              src={siteConfig.logo}
+              alt={`${siteConfig.name} logo`}
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full object-cover"
+              priority
+            />
             <div>
               <span className="text-xl font-bold text-primaryNavy tracking-tight block">
                 {siteConfig.name}
