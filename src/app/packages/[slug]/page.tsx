@@ -3,7 +3,7 @@
 import { use, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+//import { packagesData } from '@/lib/constants';
 const packagesData: Record<string, { 
   title: string; 
   duration: string; 

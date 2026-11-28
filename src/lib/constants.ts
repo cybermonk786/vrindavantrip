@@ -26,7 +26,7 @@ export const packagesData: TourPackage[] = [
     duration: "1 Day / 1 Night",
     vehicle: "Private AC Vehicle",
     price: "₹1,499",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1739329258654-98bc2b550432?auto=format&fit=crop&q=80&w=800",
     category: "1 Day Packages",
     highlights: ["Banke Bihari Temple", "Krishna Janmabhoomi", "Gokul Brahamand Ghat", "Prem Mandir Light Show"]
   },
@@ -37,7 +37,7 @@ export const packagesData: TourPackage[] = [
     duration: "1 Night / 2 Days",
     vehicle: "Private AC Vehicle",
     price: "₹2,999",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1662376107358-21296a9234f1?auto=format&fit=crop&q=80&w=800",
     category: "1 Night / 2 Days",
     highlights: ["Yamuna Aarti at Vishram Ghat", "ISKCON Vrindavan", "Govardhan Parikrama Overview", "Dwarkadhish Temple"]
   },
@@ -59,7 +59,7 @@ export const packagesData: TourPackage[] = [
     duration: "1 Day",
     vehicle: "Private AC Vehicle",
     price: "₹2,499",
-    image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1616404992875-a412e2cd8bd0?auto=format&fit=crop&q=80&w=800",
     category: "Special Packages",
     highlights: ["Radha Rani Temple Barsana", "Nand Bhavan Nandgaon", "Govardhan Giriraj Shila Pujan", "Daan Ghati Temple"]
   }
@@ -70,7 +70,7 @@ export const destinationsData: Destination[] = [
     id: "dest-1",
     slug: "prem-mandir",
     name: "Prem Mandir",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800",
     description: "A magnificent temple built in white marble dedicated to divine love."
   },
   {
@@ -98,7 +98,8 @@ export const destinationsData: Destination[] = [
     id: "dest-5",
     slug: "barsana",
     name: "Barsana",
-    image: "https://images.unsplash.com/photo-1599661046289-e3189878ce45?auto=format&fit=crop&q=80&w=600",
+    //image: "https://images.unsplash.com/photo-1599661046289-e3189878ce45?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1742021495975-0f570401e6ba?auto=format&fit=crop&q=80&w=600",
     description: "The legendary birthplace of Radha Rani featuring stunning hilltop architecture."
   },
   {

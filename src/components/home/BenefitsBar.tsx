@@ -21,8 +21,8 @@ export default function BenefitsBar() {
   return (
   <section className="bg-[#f3f3ee] border-b border-white shadow-sm relative z-20">
   {/* <section className="bg-white border-b border-white shadow-sm relative z-20 "> */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-6">
           {benefitsData.map((item, index) => (
             <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-lightBlue/50 border border-borderLight/60">
               <div className="w-12 h-12 rounded-full bg-primaryNavy flex items-center justify-center shrink-0">
