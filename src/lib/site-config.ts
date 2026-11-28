@@ -4,8 +4,8 @@ export const siteConfig = {
   description: "Explore Mathura, Vrindavan, Gokul, Govardhan, Barsana and Nandgaon with comfortable vehicles, experienced drivers and well-planned pilgrimage tour packages.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vrindavantrip.com",
   logo: "/1000040721.png",
-  phone: "+916398876018",
-  phoneRaw: "+916398876018",
+  phone: "+917055177767",
+  phoneRaw: "+917055177767",
   email: "vrindavantrip.info@gmail.com",
   address: "Mathura, Uttar Pradesh, India",
   socials: {
